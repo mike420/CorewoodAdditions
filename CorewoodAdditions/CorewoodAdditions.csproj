@@ -50,7 +50,10 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\corewood_additions" />
-    <None Include="Assets\Translations\English\CoreWoodAdditions.json" />
+    <EmbeddedResource Include="Assets\Translations\English\CorewoodAdditions.json">
+      <LogicalName>translations/English.json</LogicalName>
+    </EmbeddedResource>
+    <None Include="Assets\Translations\**\CorewoodAdditions.json" Exclude="Assets\Translations\English\CorewoodAdditions.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Nexus\README.txt" />
@@ -74,8 +77,7 @@
     <Compile Include="Producers\MeadCauldronSettings.cs" />
     <Compile Include="Properties\IgnoreAccessModifiers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Misc\LocalisedText.cs" />
-    <Compile Include="Misc\FileWatcher.cs" />
+    <Compile Include="Misc\Translations.cs" />
     <Compile Include="GamePatches.cs" />
     <Compile Include="AddPrefabs.cs" />
     <Compile Include="MainConfig.cs" />
@@ -132,9 +134,9 @@
   <Target Name="CopyOutputAssets" AfterTargets="CopyOutputDLL">
     <Error Text="Assets directory not found." Condition="!Exists('$(AssetsDir)')" />
     <ItemGroup>
-      <LanguageFiles Include="$(AssetsDir)\Translations\English\CoreWoodAdditions.json" Condition="Exists('$(AssetsDir)\Translations\English\CoreWoodAdditions.json')" />
+      <LanguageFiles Include="$(AssetsDir)\Translations\**\CorewoodAdditions.json" />
     </ItemGroup>
-    <Copy SourceFiles="@(LanguageFiles)" DestinationFolder="$(MOD_CONFIGPATH)\CoreWoodAdditions\Translations\English" OverwriteReadOnlyFiles="true" />
+    <Copy SourceFiles="@(LanguageFiles)" DestinationFiles="@(LanguageFiles->'$(MOD_CONFIGPATH)\CorewoodAdditions\Translations\%(RecursiveDir)%(Filename)%(Extension)')" OverwriteReadOnlyFiles="true" />
   </Target>
   <UsingTask TaskName="WriteManifestFile" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
     <ParameterGroup>
@@ -183,12 +185,12 @@ System.IO.File.WriteAllText(ManifestFile, content);
       <PackageFiles Include="$(ProjectDir)\Package\README.md" Condition="Exists('$(ProjectDir)\Package\README.md')" />
       <PackageFiles Include="$(ProjectDir)\Package\manifest.json" Condition="Exists('$(ProjectDir)\Package\manifest.json')" />
       <PackageFiles Include="$(ProjectDir)\Package\icon.png" Condition="Exists('$(ProjectDir)\Package\icon.png')" />
-      <LanguageFiles Include="$(AssetsDir)\Translations\English\CoreWoodAdditions.json" Condition="Exists('$(AssetsDir)\Translations\English\CoreWoodAdditions.json')" />
+      <LanguageFiles Include="$(AssetsDir)\Translations\**\CorewoodAdditions.json" />
     </ItemGroup>
     <MakeDir Directories="$(ThunderPackage)" />
     <Copy SourceFiles="@(PluginFiles)" DestinationFolder="$(ThunderPackage)\plugins" />
     <Copy SourceFiles="@(PackageFiles)" DestinationFolder="$(ThunderPackage)" />
-    <Copy SourceFiles="@(LanguageFiles)" DestinationFolder="$(ThunderPackage)\config\CoreWoodAdditions\Translations\English" />
+    <Copy SourceFiles="@(LanguageFiles)" DestinationFiles="@(LanguageFiles->'$(ThunderPackage)\config\CorewoodAdditions\Translations\%(RecursiveDir)%(Filename)%(Extension)')" />
     <ZipDirectory SourceDirectory="$(ThunderPackage)" DestinationFile="ThunderStore\$(PackageName).zip" Overwrite="true" />
     <RemoveDir Directories="$(ThunderPackage)" />
   </Target>

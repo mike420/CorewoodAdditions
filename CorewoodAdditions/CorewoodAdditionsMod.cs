@@ -22,12 +22,6 @@ namespace CorewoodAdditions
         internal const string PluginGUID = "MagicMike.CorewoodAdditions";
         internal const string PluginLink = "https://discord.gg/mnr36G6J4x";
 
-        private static char pds = Path.DirectorySeparatorChar;
-        public static readonly string _basePath = BepInEx.Paths.ConfigPath + pds + "CoreWoodAdditions";
-        public static readonly string TranslationFilePath = _basePath + pds + "Translations";
-
-        private CustomLocalization Localization = LocalizationManager.Instance.GetLocalization();
-
         public static CorewoodAdditionsMod plugininstance;
         private readonly Harmony harmony = new Harmony(PluginGUID);
 
@@ -36,8 +30,6 @@ namespace CorewoodAdditions
 
         internal static ConfigFile ConfigFile;
         internal static ConfigFileWatcher ConfigFileWatcher;
-        private volatile bool translationsChanged;
-        private float translationReloadAt = -1f;
 
         public void Awake()
         {
@@ -51,13 +43,7 @@ namespace CorewoodAdditions
 
             if (MainConfig.modEnabled.Value)
             {
-                CheckForFolders();
-                LocalisedText.AddLocalisations();
-                LoadLocalisationData(TranslationFilePath);
-                FileWatcher.WatchTranslationChanges(TranslationFilePath, delegate
-                {
-                    translationsChanged = true;
-                });
+                Translations.Load(this);
 
                 LoadAssetBundles();
                 //AddFXAssets();
@@ -84,54 +70,13 @@ namespace CorewoodAdditions
 
         public void Update()
         {
-            ReloadTranslationsIfChanged();
+            Translations.Tick();
             PortalNameLabel.CheckToggleKey();
         }
 
-        private void ReloadTranslationsIfChanged()
+        public void OnDestroy()
         {
-            if (translationsChanged)
-            {
-                translationsChanged = false;
-                translationReloadAt = Time.time + 0.5f;
-            }
-            if (translationReloadAt >= 0f && Time.time >= translationReloadAt)
-            {
-                translationReloadAt = -1f;
-                try
-                {
-                    LoadLocalisationData(TranslationFilePath);
-                }
-                catch (Exception ex)
-                {
-                    Jotunn.Logger.LogWarning("[CoreWoodAdditions] Could not reload the translation files: " + ex.Message);
-                }
-            }
-        }
-
-        public static void CheckForFolders()
-        {
-            if (!Directory.Exists(_basePath))
-            {
-                Jotunn.Logger.LogInfo("Creating CoreWoodAdditions Directory");
-                Directory.CreateDirectory(_basePath);
-            }
-            if (!Directory.Exists(TranslationFilePath))
-            {
-                Jotunn.Logger.LogInfo("Creating Translations folder");
-                Directory.CreateDirectory(TranslationFilePath);
-            }
-        }
-
-        public void LoadLocalisationData(string directory)
-        {
-            string[] fileSystemEntries = Directory.GetFileSystemEntries(directory, "*.json", SearchOption.AllDirectories);
-            foreach (string path in fileSystemEntries)
-            {
-                string language = new DirectoryInfo(Path.GetDirectoryName(path)).Name;
-                Path.GetFileNameWithoutExtension(path);
-                Localization.AddJsonFile(language, File.ReadAllText(path));
-            }
+            Translations.Unload();
         }
 
         public static void LoadAssetBundles()
