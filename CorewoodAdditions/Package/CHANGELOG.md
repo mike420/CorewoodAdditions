@@ -7,6 +7,12 @@
 </thead>
 <tbody>
   <tr>
+    <td>1.0.9</td>
+    <td>
+    <li>Updated F7 control panel.</li>
+    </td>
+  </tr>
+  <tr>
     <td>1.0.8</td>
     <td>
     <li>Fixed the Beehive, Birdhouse and Compost Bin losing part of a batch, and the items used to make it, when their container had no empty slot and the output stack had room for only some of it. They now wait until the whole batch fits.</li>
