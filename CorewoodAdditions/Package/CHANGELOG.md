@@ -7,6 +7,12 @@
 </thead>
 <tbody>
   <tr>
+    <td>1.1.0</td>
+    <td>
+    <li>Re-built for Valheim 1.0.21.</li>
+    </td>
+  </tr>
+  <tr>
     <td>1.0.9</td>
     <td>
     <li>Updated F7 control panel.</li>
