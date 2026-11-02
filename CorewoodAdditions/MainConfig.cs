@@ -268,6 +268,9 @@ namespace CorewoodAdditions
             portalQuickTeleport = config.BindConfigInOrder("Portal", "Fast Teleport", defaultValue: true, "Speed up teleporting through a Corewood portal: a short fade, and you arrive as soon as the destination has loaded instead of after the vanilla 8 seconds. Vanilla portals are not affected. Has no effect while QuickTeleport is installed, as that already speeds up every portal.", synced: true, sectionOrder: true, settingOrder: true);
             portalFadeTime = config.BindConfigInOrder("Portal", "Fast Teleport Fade Time", defaultValue: 0.25f, "Seconds the screen takes to fade out and back in during a fast teleport. Local setting.", synced: false, sectionOrder: true, settingOrder: true, acceptableValues: new AcceptableValueRange<float>(0f, 1f));
             portalLoadSafetyDelay = config.BindConfigInOrder("Portal", "Fast Teleport Safety Delay", defaultValue: 0.5f, "Extra seconds to wait once the destination has loaded, so buildings there are in place before you arrive. Raise it if you arrive before a base has appeared. Local setting.", synced: false, sectionOrder: true, settingOrder: true, acceptableValues: new AcceptableValueRange<float>(0f, 5f));
+
+            // Decimal settings rounded (and kept in range) whichever editor sets them
+            MagicMike.ModSettings.ConfigRounding.RoundAll(config);
         }
     }
 }
