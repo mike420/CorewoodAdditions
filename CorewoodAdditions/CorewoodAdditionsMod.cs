@@ -17,7 +17,7 @@ namespace CorewoodAdditions
     internal class CorewoodAdditionsMod : BaseUnityPlugin
     {
         internal const string PluginName = "CorewoodAdditions";
-        internal const string PluginVersion = "1.1.4";
+        internal const string PluginVersion = "1.1.5";
         internal const string PluginAuthor = "MagicMike";
         internal const string PluginGUID = "MagicMike.CorewoodAdditions";
         internal const string PluginLink = "https://discord.gg/mnr36G6J4x";
