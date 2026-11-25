@@ -1,3 +1,5 @@
+[img]https://imgup.uk/i/RlDzGrHb.png[/img]
+
 [size=6][b]CorewoodAdditions[/b][/size]
 
 Additional HD build pieces for CoreWoodExtras including a compost bin, beehive, birdhouse, three fish traps, a smelter, a charcoal kiln, a frost kiln, a windmill, a fermenter, a cooking station, a portal, a wisp fountain and more!
@@ -375,15 +377,24 @@ For Nexus downloads you will need to install manually.
 [size=5][b]Plugins Created by Magic Mike[/b][/size]
 
 [list]
-[*][url=https://thunderstore.io/c/valheim/p/MagicMike/CoreWoodExtras/]Corewood Extras[/url]
-[*][url=https://thunderstore.io/c/valheim/p/MagicMike/CorewoodFortified/]Corewood Fortified[/url]
-[*][url=https://thunderstore.io/c/valheim/p/MagicMike/CorewoodAdditions/]Corewood Additions[/url]
-[*][url=https://thunderstore.io/c/valheim/p/MagicMike/MyDirtyHoe/]My Dirty Hoe[/url]
-[*][url=https://thunderstore.io/c/valheim/p/MagicMike/ChestPreview/]Chest Preview[/url]
-[*][url=https://thunderstore.io/c/valheim/p/MagicMike/YabbaDabbaDoo/]YabbaDabbaDoo[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/AuroraBorealis]Aurora Borealis[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/BetterBuildMenu]Better Build Menu[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/BetterEquipSlots]Better Equip Slots[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/CorewoodAdditions]Corewood Additions[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/CoreWoodExtras]Corewood Extras[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/CorewoodFortified]Corewood Fortified[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/ChestPreview]Chest Preview[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/DestroyIt]Destroy It[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/EinherjarBodies]Einherjar Bodies[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/ExtraInventorySlots]Extra Inventory Slots[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/MyDirtyHoe]My Dirty Hoe[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/ValheimSkies]Valheim Skies[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/VanityWardrobe]Vanity Wardrobe[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/VillagePlebs]Village Plebs[/url]
+[*][url=https://valheim.hexium.gg/mods/MagicMike/YabbaDabbaDoo]YabbaDabbaDoo[/url]
 [/list]
 
 
 [size=5][b]Comments/Suggestions/Help[/b][/size]
 
-[url=https://www.nexusmods.com/valheim/mods/2806]Nexus[/url], [url=https://discord.gg/mnr36G6J4x]Discord[/url]
+[url=https://discord.gg/mnr36G6J4x]Discord[/url]
